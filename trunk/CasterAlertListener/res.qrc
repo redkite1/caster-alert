@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="icons" >
+    <file alias="remove" >images/icons/edit_remove.png</file>
+    <file alias="add" >images/icons/edit_add.png</file>
+  </qresource>
+</RCC>

@@ -15,3 +15,4 @@ HEADERS = src/casteralertlistenerimpl.h \
 SOURCES = src/casteralertlistenerimpl.cpp \
     src/main.cpp \
     libs/src/casteralert.cpp
+RESOURCES += res.qrc

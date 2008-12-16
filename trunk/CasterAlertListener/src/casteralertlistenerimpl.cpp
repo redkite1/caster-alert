@@ -33,6 +33,22 @@ void CasterAlertListenerImpl::stopListenning()
     sockM->abort();
 }
 
+void CasterAlertListenerImpl::on_addUserButton_clicked()
+{
+    QString user = QInputDialog::getText(this, trUtf8("Username"), trUtf8("Username to add to the list :               "), QLineEdit::Normal, trUtf8("username"));
+
+    if ( user != "" )
+        userList->addItem(user);
+    // TODO : check if username not already in and Warning in both case?
+}
+
+void CasterAlertListenerImpl::on_removeUserButton_clicked()
+{
+    // TODO : doesn't work
+    for (int i=0; i<userList->selectedItems().size(); i++)
+        userList->removeItemWidget(userList->selectedItems().at(i));
+}
+
 void CasterAlertListenerImpl::readPendingDatagrams()
 {
     qDebug() << "Receiving datagram";

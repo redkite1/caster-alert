@@ -7,6 +7,7 @@
 #include "../libs/src/casteralert.h"
 #include <QUdpSocket>
 #include <QPlainTextEdit>
+#include <QInputDialog>
 
 // Car Qt gère pas encore comme il faut le multicast ... tututut
 #if defined (Q_OS_UNIX)
@@ -33,6 +34,8 @@ public slots:
 private slots:
     void readPendingDatagrams();
     void stopListenning();
+    void on_addUserButton_clicked();
+    void on_removeUserButton_clicked();
 
 private:
     bool checkConcern(const CasterAlert& ca) const;
