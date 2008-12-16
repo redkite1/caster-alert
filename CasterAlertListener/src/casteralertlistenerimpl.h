@@ -9,6 +9,16 @@
 #include <QPlainTextEdit>
 #include <QInputDialog>
 
+#include <Phonon>
+#include <Phonon/phononnamespace.h>
+#include <phonon/audiooutput.h>
+#include <phonon/seekslider.h>
+#include <phonon/mediaobject.h>
+#include <phonon/volumeslider.h>
+#include <phonon/backendcapabilities.h>
+
+
+
 // Car Qt gère pas encore comme il faut le multicast ... tututut
 #if defined (Q_OS_UNIX)
 #  include <sys/types.h>
@@ -34,6 +44,7 @@ public slots:
 private slots:
     void readPendingDatagrams();
     void stopListenning();
+    void performAlert(const CasterAlert &ca);
     void on_addUserButton_clicked();
     void on_removeUserButton_clicked();
 
