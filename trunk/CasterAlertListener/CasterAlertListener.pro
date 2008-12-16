@@ -1,7 +1,8 @@
 TEMPLATE = app
 QT = gui \
     core \
-    network
+    network \
+    phonon
 CONFIG += qt \
     release \
     warn_on

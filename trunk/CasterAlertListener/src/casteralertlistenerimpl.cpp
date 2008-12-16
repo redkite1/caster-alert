@@ -33,25 +33,9 @@ void CasterAlertListenerImpl::stopListenning()
     sockM->abort();
 }
 
-void CasterAlertListenerImpl::on_addUserButton_clicked()
-{
-    QString user = QInputDialog::getText(this, trUtf8("Username"), trUtf8("Username to add to the list :               "), QLineEdit::Normal, trUtf8("username"));
-
-    if ( user != "" )
-        userList->addItem(user);
-    // TODO : check if username not already in and Warning in both case?
-}
-
-void CasterAlertListenerImpl::on_removeUserButton_clicked()
-{
-    // TODO : doesn't work
-    for (int i=0; i<userList->selectedItems().size(); i++)
-        userList->removeItemWidget(userList->selectedItems().at(i));
-}
-
 void CasterAlertListenerImpl::readPendingDatagrams()
 {
-    qDebug() << "Receiving datagram";
+    //qDebug() << "Receiving datagram";
 
     while (sockM->hasPendingDatagrams())
     {
@@ -69,15 +53,26 @@ void CasterAlertListenerImpl::readPendingDatagrams()
         infoConsole->appendPlainText("From : " + ca.getFrom());
 
         if (checkConcern(ca))
+        {
             infoConsole->appendPlainText("Ca nous concerne !!");
+            performAlert(ca);
+        }
         else
             infoConsole->appendPlainText("C'est pas pour nous");
 
-        //processTheDatagram(datagram);
-        qDebug() << datagram.data();
-        qDebug() << sender;
-        qDebug() << senderPort << endl;
+        //qDebug() << datagram.data();
+        //qDebug() << sender;
+        //qDebug() << senderPort << endl;
     }
+}
+
+void CasterAlertListenerImpl::performAlert(const CasterAlert &ca)
+{
+    if (actionSound->isChecked())
+        QApplication::beep();
+
+    if (actionVisual->isChecked())
+        return;
 }
 
 bool CasterAlertListenerImpl::checkConcern(const CasterAlert &ca) const
@@ -94,7 +89,25 @@ bool CasterAlertListenerImpl::checkConcern(const CasterAlert &ca) const
     return false;
 }
 
+void CasterAlertListenerImpl::on_addUserButton_clicked()
+{
+    QString user = QInputDialog::getText(this, trUtf8("Username"), trUtf8("Username to add to the list :               "), QLineEdit::Normal, trUtf8("username"));
 
+    if ( user != "" )
+        userList->addItem(user);
+    // TODO : check if username not already in and Warning in both case?
+}
+
+void CasterAlertListenerImpl::on_removeUserButton_clicked()
+{
+    // TODO : doesn't work
+    // for (int i=0; i<userList->selectedItems().size(); i++)
+    //   userList->removeItemWidget(userList->selectedItems().at(i));
+    Phonon::MediaObject *mediaObject = new Phonon::MediaObject(this);
+    mediaObject->setCurrentSource(Phonon::MediaSource("/sound/10 - Chupee.mp3"));
+    Phonon::AudioOutput *audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
+    Phonon::Path path = Phonon::createPath(mediaObject, audioOutput);
+}
 
 
 
