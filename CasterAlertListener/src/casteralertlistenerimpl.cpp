@@ -96,6 +96,7 @@ void CasterAlertListenerImpl::on_addUserButton_clicked()
     if ( user != "" )
         userList->addItem(user);
     // TODO : check if username not already in and Warning in both case?
+
 }
 
 void CasterAlertListenerImpl::on_removeUserButton_clicked()
@@ -103,10 +104,17 @@ void CasterAlertListenerImpl::on_removeUserButton_clicked()
     // TODO : doesn't work
     // for (int i=0; i<userList->selectedItems().size(); i++)
     //   userList->removeItemWidget(userList->selectedItems().at(i));
+
+    QApplication::beep();
+
+
     Phonon::MediaObject *mediaObject = new Phonon::MediaObject(this);
-    mediaObject->setCurrentSource(Phonon::MediaSource("/sound/10 - Chupee.mp3"));
+    mediaObject->setCurrentSource(Phonon::MediaSource("../sound/10 - Chupee.mp3"));
     Phonon::AudioOutput *audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
-    Phonon::Path path = Phonon::createPath(mediaObject, audioOutput);
+    Phonon::createPath(mediaObject, audioOutput);
+
+    mediaObject->play();
+
 }
 
 

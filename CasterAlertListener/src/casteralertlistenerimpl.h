@@ -9,8 +9,7 @@
 #include <QPlainTextEdit>
 #include <QInputDialog>
 
-#include <Phonon>
-#include <Phonon/phononnamespace.h>
+#include <phonon/phononnamespace.h>
 #include <phonon/audiooutput.h>
 #include <phonon/seekslider.h>
 #include <phonon/mediaobject.h>
