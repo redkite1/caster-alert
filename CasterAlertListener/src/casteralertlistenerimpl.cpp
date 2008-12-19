@@ -9,8 +9,8 @@ CasterAlertListenerImpl::CasterAlertListenerImpl( QWidget * parent, Qt::WFlags f
     readSettings();
 
     connect(startButton, SIGNAL(clicked()), this, SLOT(startListenning()));
-    connect(stopButton, SIGNAL(clicked()),this,SLOT(stopListenning()),Qt::BlockingQueuedConnection);
-
+    connect(stopButton, SIGNAL(clicked()),this,SLOT(stopListenning()));
+    connect(actionChoose_sound, SIGNAL(triggered()), SLOT(selectSong()));
 }
 
 void CasterAlertListenerImpl::startListenning()
@@ -74,9 +74,11 @@ void CasterAlertListenerImpl::performAlert(const CasterAlert &ca)
 {
     if (actionSound->isChecked())
         playSound();
-    else if (actionVisual->isChecked())
+
+    if (actionVisual->isChecked())
         return;
-    else
+
+    if ( !actionSound->isChecked() && !actionVisual->isChecked() )
         QApplication::beep();
 }
 
@@ -103,8 +105,9 @@ void CasterAlertListenerImpl::playSound()
         Phonon::createPath(mediaObject, audioOutput);
     }
 
-    mediaObject->setCurrentSource(Phonon::MediaSource("../sound/Gong3s.ogg"));    
+    mediaObject->setCurrentSource(Phonon::MediaSource(songPath));
     mediaObject->play();
+    // TODO : check if there was an erro Phonon::ErrorState to check if the file is playable or ...
 }
 
 void CasterAlertListenerImpl::on_addUserButton_clicked()
@@ -130,6 +133,7 @@ void CasterAlertListenerImpl::readSettings()
 
     actionSound->setChecked(settings.value("alert/sound", false).toBool());
     actionVisual->setChecked(settings.value("alert/visual", false).toBool());
+    songPath = settings.value("alert/songpath", "").toString();
 }
 
 void CasterAlertListenerImpl::writeSettings()
@@ -138,10 +142,16 @@ void CasterAlertListenerImpl::writeSettings()
 
     settings.setValue("alert/sound", actionSound->isChecked());
     settings.setValue("alert/visual", actionVisual->isChecked());
+    settings.setValue("alert/songpath", songPath);
 }
 
  void CasterAlertListenerImpl::closeEvent(QCloseEvent *event)
  {
     writeSettings();
     event->accept();
+ }
+
+ void CasterAlertListenerImpl::selectSong()
+ {
+     songPath = QFileDialog::getOpenFileName(this, trUtf8("Choose a alert song"), QDir::homePath());
  }
