@@ -1,12 +1,16 @@
 #include "casteralertlistenerimpl.h"
 
 
-CasterAlertListenerImpl::CasterAlertListenerImpl( QWidget * parent, Qt::WFlags f) : QMainWindow(parent, f), sockM(NULL)
+CasterAlertListenerImpl::CasterAlertListenerImpl( QWidget * parent, Qt::WFlags f) : QMainWindow(parent, f), sockM(NULL), mediaObject(NULL), audioOutput(NULL)
 {
     setupUi(this);
 
+    // Read settings
+    readSettings();
+
     connect(startButton, SIGNAL(clicked()), this, SLOT(startListenning()));
-    connect(stopButton, SIGNAL(clicked()),this,SLOT(stopListenning()));
+    connect(stopButton, SIGNAL(clicked()),this,SLOT(stopListenning()),Qt::BlockingQueuedConnection);
+
 }
 
 void CasterAlertListenerImpl::startListenning()
@@ -69,10 +73,11 @@ void CasterAlertListenerImpl::readPendingDatagrams()
 void CasterAlertListenerImpl::performAlert(const CasterAlert &ca)
 {
     if (actionSound->isChecked())
-        QApplication::beep();
-
-    if (actionVisual->isChecked())
+        playSound();
+    else if (actionVisual->isChecked())
         return;
+    else
+        QApplication::beep();
 }
 
 bool CasterAlertListenerImpl::checkConcern(const CasterAlert &ca) const
@@ -87,6 +92,19 @@ bool CasterAlertListenerImpl::checkConcern(const CasterAlert &ca) const
     }
 
     return false;
+}
+
+void CasterAlertListenerImpl::playSound()
+{
+    if (mediaObject == NULL)
+    {
+        mediaObject = new Phonon::MediaObject(this);
+        audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
+        Phonon::createPath(mediaObject, audioOutput);
+    }
+
+    mediaObject->setCurrentSource(Phonon::MediaSource("../sound/Gong3s.ogg"));    
+    mediaObject->play();
 }
 
 void CasterAlertListenerImpl::on_addUserButton_clicked()
@@ -104,19 +122,26 @@ void CasterAlertListenerImpl::on_removeUserButton_clicked()
     // TODO : doesn't work
     // for (int i=0; i<userList->selectedItems().size(); i++)
     //   userList->removeItemWidget(userList->selectedItems().at(i));
-
-    QApplication::beep();
-
-
-    Phonon::MediaObject *mediaObject = new Phonon::MediaObject(this);
-    mediaObject->setCurrentSource(Phonon::MediaSource("../sound/10 - Chupee.mp3"));
-    Phonon::AudioOutput *audioOutput = new Phonon::AudioOutput(Phonon::MusicCategory, this);
-    Phonon::createPath(mediaObject, audioOutput);
-
-    mediaObject->play();
-
 }
 
+void CasterAlertListenerImpl::readSettings()
+{
+    QSettings settings;
 
+    actionSound->setChecked(settings.value("alert/sound", false).toBool());
+    actionVisual->setChecked(settings.value("alert/visual", false).toBool());
+}
 
+void CasterAlertListenerImpl::writeSettings()
+{
+    QSettings settings;
 
+    settings.setValue("alert/sound", actionSound->isChecked());
+    settings.setValue("alert/visual", actionVisual->isChecked());
+}
+
+ void CasterAlertListenerImpl::closeEvent(QCloseEvent *event)
+ {
+    writeSettings();
+    event->accept();
+ }

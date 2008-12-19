@@ -8,6 +8,7 @@
 #include <QUdpSocket>
 #include <QPlainTextEdit>
 #include <QInputDialog>
+#include <QSettings>
 
 #include <phonon/phononnamespace.h>
 #include <phonon/audiooutput.h>
@@ -15,8 +16,6 @@
 #include <phonon/mediaobject.h>
 #include <phonon/volumeslider.h>
 #include <phonon/backendcapabilities.h>
-
-
 
 // Car Qt gère pas encore comme il faut le multicast ... tututut
 #if defined (Q_OS_UNIX)
@@ -46,13 +45,20 @@ private slots:
     void performAlert(const CasterAlert &ca);
     void on_addUserButton_clicked();
     void on_removeUserButton_clicked();
+    void readSettings();
+    void writeSettings();
+    void closeEvent(QCloseEvent *event);
 
 private:
     bool checkConcern(const CasterAlert& ca) const;
+    void playSound();
 
     QUdpSocket *sockM;      // Multicast UDP socket for listenning alerts
     QHostAddress addrM;     // Multicast address for listenning alerts
     quint16 portM;          // Multicast port for listenning alerts
+
+    Phonon::MediaObject *mediaObject;
+    Phonon::AudioOutput *audioOutput;
 };
 
 #endif
