@@ -9,6 +9,8 @@
 #include <QPlainTextEdit>
 #include <QInputDialog>
 #include <QSettings>
+#include <QFileDialog>
+#include <QDir>
 
 #include <phonon/phononnamespace.h>
 #include <phonon/audiooutput.h>
@@ -48,6 +50,7 @@ private slots:
     void readSettings();
     void writeSettings();
     void closeEvent(QCloseEvent *event);
+    void selectSong();
 
 private:
     bool checkConcern(const CasterAlert& ca) const;
@@ -59,6 +62,7 @@ private:
 
     Phonon::MediaObject *mediaObject;
     Phonon::AudioOutput *audioOutput;
+    QString songPath;
 };
 
 #endif
