@@ -43,7 +43,7 @@
      </size>
     </property>
     <property name="selectionMode">
-     <enum>QAbstractItemView::ExtendedSelection</enum>
+     <enum>QAbstractItemView::MultiSelection</enum>
     </property>
     <item>
      <property name="text">
