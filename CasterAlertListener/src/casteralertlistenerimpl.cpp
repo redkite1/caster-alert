@@ -114,17 +114,20 @@ void CasterAlertListenerImpl::on_addUserButton_clicked()
 {
     QString user = QInputDialog::getText(this, trUtf8("Username"), trUtf8("Username to add to the list :               "), QLineEdit::Normal, trUtf8("username"));
 
-    if ( user != "" )
+    if ( user != "" && userList->findItems(user, Qt::MatchFixedString).count()==0 )
         userList->addItem(user);
     // TODO : check if username not already in and Warning in both case?
+
+
 
 }
 
 void CasterAlertListenerImpl::on_removeUserButton_clicked()
-{
+{    
+    QModelIndexList mil = userList->selectedIndexes();
+
     // TODO : doesn't work
-    // for (int i=0; i<userList->selectedItems().size(); i++)
-    //   userList->removeItemWidget(userList->selectedItems().at(i));
+    mil
 }
 
 void CasterAlertListenerImpl::readSettings()
@@ -143,6 +146,7 @@ void CasterAlertListenerImpl::writeSettings()
     settings.setValue("alert/sound", actionSound->isChecked());
     settings.setValue("alert/visual", actionVisual->isChecked());
     settings.setValue("alert/songpath", songPath);
+//    settings.setValue("users/list", getUserList(false));
 }
 
  void CasterAlertListenerImpl::closeEvent(QCloseEvent *event)
@@ -155,3 +159,31 @@ void CasterAlertListenerImpl::writeSettings()
  {
      songPath = QFileDialog::getOpenFileName(this, trUtf8("Choose a alert song"), QDir::homePath());
  }
+
+ QStringList CasterAlertListenerImpl::getUserList(bool onlySelectedUsers)
+ {
+    QStringList slu;
+    QList<QListWidgetItem *> lwi;
+/*
+    if ( onlySelectedUsers )
+        lwi = userList->selectedItems();
+    else
+        lwi = userList->items(Q);
+
+    for (int i=0; i<lwi; i++)
+        slu.append(lwi.at(i)->text());
+*/
+    return slu;
+ }
+
+
+
+
+
+
+
+
+
+
+
+

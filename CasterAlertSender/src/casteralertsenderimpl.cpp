@@ -15,6 +15,7 @@ void CasterAlertSenderImpl::initSocket()
     sockM->bind(this->portM, QUdpSocket::ShareAddress);     // Listening on : ip=QHostAddress::Any(it's an overloaded method), port=portM
                                                             // QUdpSocket::ShareAddress = Allow other services to bind to the same address and port
 
+/*  Plus besoin d'écouter, suffit d'envoyer ici, c juste bon pour tester :-)
     // S'abonner a l adresse multicast ! (Qt ne gere pas, il faut appeler les methode natives... tsss)
     struct ip_mreq mreq;
     mreq.imr_multiaddr.s_addr = inet_addr((const char*)addrM.toString().toStdString().c_str());
@@ -23,6 +24,7 @@ void CasterAlertSenderImpl::initSocket()
     qDebug("setsockopt returned %d", r);
 
     connect(sockM, SIGNAL(readyRead()), this, SLOT(readPendingDatagramsM()));
+*/
 }
 
 void CasterAlertSenderImpl::readPendingDatagramsM()

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'casteralertsendergui.ui'
 **
-** Created: Tue Dec 16 19:33:54 2008
+** Created: Sat Dec 20 16:16:49 2008
 **      by: Qt User Interface Compiler version 4.4.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -50,7 +50,7 @@ public:
     userList->setObjectName(QString::fromUtf8("userList"));
     userList->setGeometry(QRect(360, 70, 120, 192));
     userList->setMaximumSize(QSize(120, 16777215));
-    userList->setSelectionMode(QAbstractItemView::ExtendedSelection);
+    userList->setSelectionMode(QAbstractItemView::MultiSelection);
     CasterAlertSenderGUI->setCentralWidget(centralwidget);
     menubar = new QMenuBar(CasterAlertSenderGUI);
     menubar->setObjectName(QString::fromUtf8("menubar"));

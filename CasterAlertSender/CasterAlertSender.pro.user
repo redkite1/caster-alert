@@ -31,22 +31,32 @@
  <data>
   <variable>buildConfiguration-debug</variable>
   <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >debug</value>
    <value key="QtVersionId" type="int" >0</value>
-   <value key="addQDumper" type="bool" >true</value>
+   <value key="addQDumper" type="" ></value>
+   <value key="buildDirectory" type="QString" >/home/redkite/Programmation/Qt4/CasterAlert/CasterAlertSender</value>
   </valuemap>
  </data>
  <data>
   <variable>buildConfiguration-release</variable>
   <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >release</value>
    <value key="QtVersionId" type="int" >0</value>
-   <value key="addQDumper" type="bool" >true</value>
+   <value key="addQDumper" type="" ></value>
   </valuemap>
  </data>
  <data>
   <variable>buildconfiguration-debug-buildstep0</variable>
   <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >debug</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-debug-buildstep1</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList" >
-    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-x0ckSFVNeR,guid=e2320b12e28d5ceba3ea416d49478875</value>
+    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-O1mJvMxxwH,guid=986ac1ad6dd1689e1208f7e5494d00d0</value>
     <value type="QString" >DESKTOP_SESSION=kde</value>
     <value type="QString" >DESKTOP_STARTUP_ID=</value>
     <value type="QString" >DISPLAY=:0.0</value>
@@ -66,16 +76,16 @@
     <value type="QString" >PWD=/home/redkite</value>
     <value type="QString" >QTDIR=/usr</value>
     <value type="QString" >QT_PLUGIN_PATH=/home/redkite/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString" >SESSION_MANAGER=local/vendetta:/tmp/.ICE-unix/6779</value>
+    <value type="QString" >SESSION_MANAGER=local/vendetta:/tmp/.ICE-unix/6849</value>
     <value type="QString" >SHELL=/bin/bash</value>
     <value type="QString" >SHLVL=0</value>
-    <value type="QString" >SSH_AGENT_PID=6689</value>
-    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-Iwdisw6614/agent.6614</value>
+    <value type="QString" >SSH_AGENT_PID=6758</value>
+    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-CbyCfs6683/agent.6683</value>
     <value type="QString" >USER=redkite</value>
     <value type="QString" >WINDOWPATH=7</value>
     <value type="QString" >XCURSOR_THEME=oxy-white</value>
     <value type="QString" >XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
-    <value type="QString" >XDG_SESSION_COOKIE=67c17cf51cbd8a149315bca34890b99f-1229424756.590076-398538094</value>
+    <value type="QString" >XDG_SESSION_COOKIE=67c17cf51cbd8a149315bca34890b99f-1229783247.607868-1855905237</value>
     <value type="QString" >XDM_MANAGED=method=classic</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
@@ -90,15 +100,16 @@
     <value type="QString" >QT*=network</value>
    </valuelist>
    <value key="abstractProcess.command" type="QString" >/usr/bin/qmake</value>
-   <value key="abstractProcess.enabled" type="bool" >false</value>
+   <value key="abstractProcess.enabled" type="bool" >true</value>
    <value key="abstractProcess.workingDirectory" type="QString" >/home/redkite/Programmation/Qt4/CasterAlert/CasterAlertSender</value>
   </valuemap>
  </data>
  <data>
-  <variable>buildconfiguration-debug-buildstep1</variable>
+  <variable>buildconfiguration-debug-buildstep2</variable>
   <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList" >
-    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-x0ckSFVNeR,guid=e2320b12e28d5ceba3ea416d49478875</value>
+    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-O1mJvMxxwH,guid=986ac1ad6dd1689e1208f7e5494d00d0</value>
     <value type="QString" >DESKTOP_SESSION=kde</value>
     <value type="QString" >DESKTOP_STARTUP_ID=</value>
     <value type="QString" >DISPLAY=:0.0</value>
@@ -118,16 +129,16 @@
     <value type="QString" >PWD=/home/redkite</value>
     <value type="QString" >QTDIR=/usr</value>
     <value type="QString" >QT_PLUGIN_PATH=/home/redkite/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString" >SESSION_MANAGER=local/vendetta:/tmp/.ICE-unix/6779</value>
+    <value type="QString" >SESSION_MANAGER=local/vendetta:/tmp/.ICE-unix/6849</value>
     <value type="QString" >SHELL=/bin/bash</value>
     <value type="QString" >SHLVL=0</value>
-    <value type="QString" >SSH_AGENT_PID=6689</value>
-    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-Iwdisw6614/agent.6614</value>
+    <value type="QString" >SSH_AGENT_PID=6758</value>
+    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-CbyCfs6683/agent.6683</value>
     <value type="QString" >USER=redkite</value>
     <value type="QString" >WINDOWPATH=7</value>
     <value type="QString" >XCURSOR_THEME=oxy-white</value>
     <value type="QString" >XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
-    <value type="QString" >XDG_SESSION_COOKIE=67c17cf51cbd8a149315bca34890b99f-1229424756.590076-398538094</value>
+    <value type="QString" >XDG_SESSION_COOKIE=67c17cf51cbd8a149315bca34890b99f-1229783247.607868-1855905237</value>
     <value type="QString" >XDM_MANAGED=method=classic</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
@@ -145,6 +156,7 @@
  <data>
   <variable>buildconfiguration-debug-cleanstep0</variable>
   <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList" >
     <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-x0ckSFVNeR,guid=e2320b12e28d5ceba3ea416d49478875</value>
     <value type="QString" >DESKTOP_SESSION=kde</value>
@@ -189,11 +201,20 @@
  </data>
  <data>
   <variable>buildconfiguration-release-buildstep0</variable>
-  <valuemap type="QVariantMap" />
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >release</value>
+  </valuemap>
  </data>
  <data>
   <variable>buildconfiguration-release-buildstep1</variable>
   <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >release</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildconfiguration-release-buildstep2</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >release</value>
    <valuelist key="makeargs" type="QVariantList" >
     <value type="QString" >debug</value>
    </valuelist>
@@ -201,7 +222,9 @@
  </data>
  <data>
   <variable>buildconfiguration-release-cleanstep0</variable>
-  <valuemap type="QVariantMap" />
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >release</value>
+  </valuemap>
  </data>
  <data>
   <variable>buildconfigurations</variable>
@@ -213,16 +236,26 @@
  <data>
   <variable>buildstep0</variable>
   <valuemap type="QVariantMap" >
-   <value key="mkspec" type="QString" ></value>
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
   </valuemap>
  </data>
  <data>
   <variable>buildstep1</variable>
-  <valuemap type="QVariantMap" />
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
+   <value key="mkspec" type="QString" ></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>buildstep2</variable>
+  <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
+  </valuemap>
  </data>
  <data>
   <variable>buildsteps</variable>
   <valuelist type="QVariantList" >
+   <value type="QString" >trolltech.qt4projectmanager.gdbmaros</value>
    <value type="QString" >trolltech.qt4projectmanager.qmake</value>
    <value type="QString" >trolltech.qt4projectmanager.make</value>
   </valuelist>
@@ -230,6 +263,7 @@
  <data>
   <variable>cleanstep0</variable>
   <valuemap type="QVariantMap" >
+   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
    <value key="clean" type="bool" >true</value>
   </valuemap>
  </data>
@@ -238,6 +272,10 @@
   <valuelist type="QVariantList" >
    <value type="QString" >trolltech.qt4projectmanager.make</value>
   </valuelist>
+ </data>
+ <data>
+  <variable>defaultFileEncoding</variable>
+  <value type="QByteArray" >System</value>
  </data>
  <data>
   <variable>project</variable>
