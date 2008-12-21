@@ -6,7 +6,7 @@
  </data>
  <data>
   <variable>RunConfiguration0-ProFile</variable>
-  <value type="QString" >/home/redkite/Programmation/Qt4/CasterAlert/CasterAlertListener/CasterAlertListener.pro</value>
+  <value type="QString" >/home/redkite/Programmation/Qt/CasterAlert/CasterAlertListener/CasterAlertListener.pro</value>
  </data>
  <data>
   <variable>RunConfiguration0-RunConfiguration.name</variable>
@@ -31,36 +31,83 @@
  <data>
   <variable>buildConfiguration-debug</variable>
   <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >debug</value>
    <value key="QtVersionId" type="int" >0</value>
-   <value key="addQDumper" type="" ></value>
-   <value key="buildDirectory" type="QString" >/home/redkite/Programmation/Qt4/CasterAlert/CasterAlertListener</value>
+   <value key="addQDumper" type="bool" >true</value>
   </valuemap>
  </data>
  <data>
   <variable>buildConfiguration-release</variable>
   <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >release</value>
    <value key="QtVersionId" type="int" >0</value>
-   <value key="addQDumper" type="" ></value>
+   <value key="addQDumper" type="bool" >true</value>
   </valuemap>
  </data>
  <data>
   <variable>buildconfiguration-debug-buildstep0</variable>
   <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >debug</value>
+   <valuelist key="abstractProcess.Environment" type="QVariantList" >
+    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-3yvzvHn8kF,guid=b959869d0ed3a2b2c4bb7755494e2be4</value>
+    <value type="QString" >DESKTOP_SESSION=kde</value>
+    <value type="QString" >DESKTOP_STARTUP_ID=</value>
+    <value type="QString" >DISPLAY=:0.0</value>
+    <value type="QString" >DM_CONTROL=/var/run/xdmctl</value>
+    <value type="QString" >GPG_AGENT_INFO=/tmp/gpg-vIDUy3/S.gpg-agent:7186:1</value>
+    <value type="QString" >GS_LIB=/home/redkite/.fonts</value>
+    <value type="QString" >GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/redkite/.gtkrc-2.0:/home/redkite/.gtkrc-2.0-kde4:/home/redkite/.kde/share/config/gtkrc-2.0</value>
+    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/home/redkite/.gtkrc::/home/redkite/.kde/share/config/gtkrc</value>
+    <value type="QString" >HOME=/home/redkite</value>
+    <value type="QString" >KDE_FULL_SESSION=true</value>
+    <value type="QString" >KDE_MULTIHEAD=false</value>
+    <value type="QString" >KDE_SESSION_UID=</value>
+    <value type="QString" >KDE_SESSION_VERSION=4</value>
+    <value type="QString" >LANG=en_US.UTF-8</value>
+    <value type="QString" >LOGNAME=redkite</value>
+    <value type="QString" >MALLOC_CHECK_=2</value>
+    <value type="QString" >ORACLE_BASE=/oracle/app/oracle</value>
+    <value type="QString" >ORACLE_HOME=/oracle/app/oracle/product/10.2.0/db_1</value>
+    <value type="QString" >ORACLE_SID=kitchen</value>
+    <value type="QString" >PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/oracle/app/oracle/product/10.2.0/db_1/bin</value>
+    <value type="QString" >PWD=/home/redkite</value>
+    <value type="QString" >QTDIR=/usr</value>
+    <value type="QString" >QT_PLUGIN_PATH=/home/redkite/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
+    <value type="QString" >SESSION_MANAGER=local/evey:/tmp/.ICE-unix/7289</value>
+    <value type="QString" >SHELL=/bin/bash</value>
+    <value type="QString" >SHLVL=0</value>
+    <value type="QString" >SSH_AGENT_PID=7185</value>
+    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-lBoZzZ7069/agent.7069</value>
+    <value type="QString" >USER=redkite</value>
+    <value type="QString" >WINDOWPATH=7</value>
+    <value type="QString" >XCURSOR_THEME=oxy-white</value>
+    <value type="QString" >XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
+    <value type="QString" >XDG_SESSION_COOKIE=25931fe980ec16d5ad84330548e76c7f-1229859810.552040-740989827</value>
+    <value type="QString" >XDM_MANAGED=method=classic</value>
+   </valuelist>
+   <valuelist key="abstractProcess.arguments" type="QVariantList" >
+    <value type="QString" >/home/redkite/Programmation/Qt/CasterAlert/CasterAlertListener/CasterAlertListener.pro</value>
+    <value type="QString" >-spec</value>
+    <value type="QString" >/usr/share/qt4/mkspecs/linux-g++</value>
+    <value type="QString" >-r</value>
+    <value type="QString" >CONFIG+=debug_and_release</value>
+    <value type="QString" >-after</value>
+    <value type="QString" >SOURCES*=/home/redkite/Programmation/QtCreator/bin/gdbmacros/gdbmacros.cpp</value>
+    <value type="QString" >-after</value>
+    <value type="QString" >QT*=network</value>
+   </valuelist>
+   <value key="abstractProcess.command" type="QString" >/usr/bin/qmake</value>
+   <value key="abstractProcess.enabled" type="bool" >false</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >/home/redkite/Programmation/Qt/CasterAlert/CasterAlertListener</value>
   </valuemap>
  </data>
  <data>
   <variable>buildconfiguration-debug-buildstep1</variable>
   <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList" >
-    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-O1mJvMxxwH,guid=986ac1ad6dd1689e1208f7e5494d00d0</value>
+    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-3yvzvHn8kF,guid=b959869d0ed3a2b2c4bb7755494e2be4</value>
     <value type="QString" >DESKTOP_SESSION=kde</value>
     <value type="QString" >DESKTOP_STARTUP_ID=</value>
     <value type="QString" >DISPLAY=:0.0</value>
     <value type="QString" >DM_CONTROL=/var/run/xdmctl</value>
+    <value type="QString" >GPG_AGENT_INFO=/tmp/gpg-vIDUy3/S.gpg-agent:7186:1</value>
     <value type="QString" >GS_LIB=/home/redkite/.fonts</value>
     <value type="QString" >GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/redkite/.gtkrc-2.0:/home/redkite/.gtkrc-2.0-kde4:/home/redkite/.kde/share/config/gtkrc-2.0</value>
     <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/home/redkite/.gtkrc::/home/redkite/.kde/share/config/gtkrc</value>
@@ -69,72 +116,26 @@
     <value type="QString" >KDE_MULTIHEAD=false</value>
     <value type="QString" >KDE_SESSION_UID=</value>
     <value type="QString" >KDE_SESSION_VERSION=4</value>
-    <value type="QString" >LANG=fr_BE.UTF-8</value>
+    <value type="QString" >LANG=en_US.UTF-8</value>
     <value type="QString" >LOGNAME=redkite</value>
     <value type="QString" >MALLOC_CHECK_=2</value>
-    <value type="QString" >PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
+    <value type="QString" >ORACLE_BASE=/oracle/app/oracle</value>
+    <value type="QString" >ORACLE_HOME=/oracle/app/oracle/product/10.2.0/db_1</value>
+    <value type="QString" >ORACLE_SID=kitchen</value>
+    <value type="QString" >PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/oracle/app/oracle/product/10.2.0/db_1/bin</value>
     <value type="QString" >PWD=/home/redkite</value>
     <value type="QString" >QTDIR=/usr</value>
     <value type="QString" >QT_PLUGIN_PATH=/home/redkite/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString" >SESSION_MANAGER=local/vendetta:/tmp/.ICE-unix/6849</value>
+    <value type="QString" >SESSION_MANAGER=local/evey:/tmp/.ICE-unix/7289</value>
     <value type="QString" >SHELL=/bin/bash</value>
     <value type="QString" >SHLVL=0</value>
-    <value type="QString" >SSH_AGENT_PID=6758</value>
-    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-CbyCfs6683/agent.6683</value>
+    <value type="QString" >SSH_AGENT_PID=7185</value>
+    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-lBoZzZ7069/agent.7069</value>
     <value type="QString" >USER=redkite</value>
     <value type="QString" >WINDOWPATH=7</value>
     <value type="QString" >XCURSOR_THEME=oxy-white</value>
     <value type="QString" >XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
-    <value type="QString" >XDG_SESSION_COOKIE=67c17cf51cbd8a149315bca34890b99f-1229783247.607868-1855905237</value>
-    <value type="QString" >XDM_MANAGED=method=classic</value>
-   </valuelist>
-   <valuelist key="abstractProcess.arguments" type="QVariantList" >
-    <value type="QString" >/home/redkite/Programmation/Qt4/CasterAlert/CasterAlertListener/CasterAlertListener.pro</value>
-    <value type="QString" >-spec</value>
-    <value type="QString" >/usr/share/qt4/mkspecs/linux-g++</value>
-    <value type="QString" >-r</value>
-    <value type="QString" >CONFIG+=debug_and_release</value>
-   </valuelist>
-   <value key="abstractProcess.command" type="QString" >/usr/bin/qmake-qt4</value>
-   <value key="abstractProcess.enabled" type="bool" >false</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >/home/redkite/Programmation/Qt4/CasterAlert/CasterAlertListener</value>
-  </valuemap>
- </data>
- <data>
-  <variable>buildconfiguration-debug-buildstep2</variable>
-  <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >debug</value>
-   <valuelist key="abstractProcess.Environment" type="QVariantList" >
-    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-O1mJvMxxwH,guid=986ac1ad6dd1689e1208f7e5494d00d0</value>
-    <value type="QString" >DESKTOP_SESSION=kde</value>
-    <value type="QString" >DESKTOP_STARTUP_ID=</value>
-    <value type="QString" >DISPLAY=:0.0</value>
-    <value type="QString" >DM_CONTROL=/var/run/xdmctl</value>
-    <value type="QString" >GS_LIB=/home/redkite/.fonts</value>
-    <value type="QString" >GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/redkite/.gtkrc-2.0:/home/redkite/.gtkrc-2.0-kde4:/home/redkite/.kde/share/config/gtkrc-2.0</value>
-    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/home/redkite/.gtkrc::/home/redkite/.kde/share/config/gtkrc</value>
-    <value type="QString" >HOME=/home/redkite</value>
-    <value type="QString" >KDE_FULL_SESSION=true</value>
-    <value type="QString" >KDE_MULTIHEAD=false</value>
-    <value type="QString" >KDE_SESSION_UID=</value>
-    <value type="QString" >KDE_SESSION_VERSION=4</value>
-    <value type="QString" >LANG=fr_BE.UTF-8</value>
-    <value type="QString" >LOGNAME=redkite</value>
-    <value type="QString" >MALLOC_CHECK_=2</value>
-    <value type="QString" >PATH=/usr/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
-    <value type="QString" >PWD=/home/redkite</value>
-    <value type="QString" >QTDIR=/usr</value>
-    <value type="QString" >QT_PLUGIN_PATH=/home/redkite/.kde/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString" >SESSION_MANAGER=local/vendetta:/tmp/.ICE-unix/6849</value>
-    <value type="QString" >SHELL=/bin/bash</value>
-    <value type="QString" >SHLVL=0</value>
-    <value type="QString" >SSH_AGENT_PID=6758</value>
-    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-CbyCfs6683/agent.6683</value>
-    <value type="QString" >USER=redkite</value>
-    <value type="QString" >WINDOWPATH=7</value>
-    <value type="QString" >XCURSOR_THEME=oxy-white</value>
-    <value type="QString" >XDG_DATA_DIRS=/usr/share:/usr/share:/usr/local/share</value>
-    <value type="QString" >XDG_SESSION_COOKIE=67c17cf51cbd8a149315bca34890b99f-1229783247.607868-1855905237</value>
+    <value type="QString" >XDG_SESSION_COOKIE=25931fe980ec16d5ad84330548e76c7f-1229859810.552040-740989827</value>
     <value type="QString" >XDM_MANAGED=method=classic</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
@@ -143,7 +144,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString" >/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool" >true</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >/home/redkite/Programmation/Qt4/CasterAlert/CasterAlertListener</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >/home/redkite/Programmation/Qt/CasterAlert/CasterAlertListener</value>
    <valuelist key="makeargs" type="QVariantList" >
     <value type="QString" >debug</value>
    </valuelist>
@@ -151,26 +152,15 @@
  </data>
  <data>
   <variable>buildconfiguration-debug-cleanstep0</variable>
-  <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >debug</value>
-  </valuemap>
+  <valuemap type="QVariantMap" />
  </data>
  <data>
   <variable>buildconfiguration-release-buildstep0</variable>
-  <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >release</value>
-  </valuemap>
+  <valuemap type="QVariantMap" />
  </data>
  <data>
   <variable>buildconfiguration-release-buildstep1</variable>
   <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >release</value>
-  </valuemap>
- </data>
- <data>
-  <variable>buildconfiguration-release-buildstep2</variable>
-  <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >release</value>
    <valuelist key="makeargs" type="QVariantList" >
     <value type="QString" >debug</value>
    </valuelist>
@@ -178,9 +168,7 @@
  </data>
  <data>
   <variable>buildconfiguration-release-cleanstep0</variable>
-  <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >release</value>
-  </valuemap>
+  <valuemap type="QVariantMap" />
  </data>
  <data>
   <variable>buildconfigurations</variable>
@@ -192,26 +180,16 @@
  <data>
   <variable>buildstep0</variable>
   <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
-  </valuemap>
- </data>
- <data>
-  <variable>buildstep1</variable>
-  <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
    <value key="mkspec" type="QString" ></value>
   </valuemap>
  </data>
  <data>
-  <variable>buildstep2</variable>
-  <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
-  </valuemap>
+  <variable>buildstep1</variable>
+  <valuemap type="QVariantMap" />
  </data>
  <data>
   <variable>buildsteps</variable>
   <valuelist type="QVariantList" >
-   <value type="QString" >trolltech.qt4projectmanager.gdbmaros</value>
    <value type="QString" >trolltech.qt4projectmanager.qmake</value>
    <value type="QString" >trolltech.qt4projectmanager.make</value>
   </valuelist>
@@ -219,7 +197,6 @@
  <data>
   <variable>cleanstep0</variable>
   <valuemap type="QVariantMap" >
-   <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" ></value>
    <value key="clean" type="bool" >true</value>
   </valuemap>
  </data>
@@ -228,10 +205,6 @@
   <valuelist type="QVariantList" >
    <value type="QString" >trolltech.qt4projectmanager.make</value>
   </valuelist>
- </data>
- <data>
-  <variable>defaultFileEncoding</variable>
-  <value type="QByteArray" >System</value>
  </data>
  <data>
   <variable>project</variable>

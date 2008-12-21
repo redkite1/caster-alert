@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'casteralertsenderimpl.h'
 **
-** Created: Sun Dec 21 17:27:08 2008
+** Created: Sun Dec 21 18:46:42 2008
 **      by: The Qt Meta Object Compiler version 59 (Qt 4.4.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_CasterAlertSenderImpl[] = {
        1,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   10, // methods
+      10,   10, // methods
        0,    0, // properties
        0,    0, // enums/sets
 
@@ -35,6 +35,9 @@ static const uint qt_meta_data_CasterAlertSenderImpl[] = {
      133,   22,   22,   22, 0x08,
      148,   22,   22,   22, 0x08,
      170,  164,   22,   22, 0x08,
+     195,   22,   22,   22, 0x08,
+     207,   22,   22,   22, 0x08,
+     260,   22,   22,   22, 0x08,
 
        0        // eod
 };
@@ -45,7 +48,9 @@ static const char qt_meta_stringdata_CasterAlertSenderImpl[] = {
     "on_addUserButton_clicked()\0"
     "on_removeUserButton_clicked()\0"
     "readSettings()\0writeSettings()\0event\0"
-    "closeEvent(QCloseEvent*)\0"
+    "closeEvent(QCloseEvent*)\0show_hide()\0"
+    "sticon_dblclicked(QSystemTrayIcon::ActivationReason)\0"
+    "exit_applic()\0"
 };
 
 const QMetaObject CasterAlertSenderImpl::staticMetaObject = {
@@ -82,8 +87,11 @@ int CasterAlertSenderImpl::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 4: readSettings(); break;
         case 5: writeSettings(); break;
         case 6: closeEvent((*reinterpret_cast< QCloseEvent*(*)>(_a[1]))); break;
+        case 7: show_hide(); break;
+        case 8: sticon_dblclicked((*reinterpret_cast< QSystemTrayIcon::ActivationReason(*)>(_a[1]))); break;
+        case 9: exit_applic(); break;
         }
-        _id -= 7;
+        _id -= 10;
     }
     return _id;
 }
