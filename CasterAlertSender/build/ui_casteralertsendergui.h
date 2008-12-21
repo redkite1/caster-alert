@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'casteralertsendergui.ui'
 **
-** Created: Sun Dec 21 17:27:05 2008
+** Created: Sun Dec 21 18:36:06 2008
 **      by: Qt User Interface Compiler version 4.4.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -89,7 +89,7 @@ public:
     addUserButton->setObjectName(QString::fromUtf8("addUserButton"));
     addUserButton->setMaximumSize(QSize(24, 24));
     QIcon icon;
-    icon.addPixmap(QPixmap(QString::fromUtf8(":/icons/add")), QIcon::Normal, QIcon::Off);
+    icon.addPixmap(QPixmap(QString::fromUtf8(":/icons/images/icons/edit_add.png")), QIcon::Normal, QIcon::Off);
     addUserButton->setIcon(icon);
 
     horizontalLayout->addWidget(addUserButton);
@@ -102,7 +102,7 @@ public:
     removeUserButton->setObjectName(QString::fromUtf8("removeUserButton"));
     removeUserButton->setMaximumSize(QSize(24, 24));
     QIcon icon1;
-    icon1.addPixmap(QPixmap(QString::fromUtf8(":/icons/remove")), QIcon::Normal, QIcon::Off);
+    icon1.addPixmap(QPixmap(QString::fromUtf8(":/icons/images/icons/edit_remove.png")), QIcon::Normal, QIcon::Off);
     removeUserButton->setIcon(icon1);
 
     horizontalLayout->addWidget(removeUserButton);

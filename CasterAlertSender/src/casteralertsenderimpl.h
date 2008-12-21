@@ -21,6 +21,9 @@
 #include <QInputDialog>
 #include <QSettings>
 #include <QCloseEvent>
+#include <QSystemTrayIcon>
+#include <QIcon>
+#include <QMenu>
 
 #include <QtDebug>
 
@@ -40,14 +43,21 @@ private slots:
     void readSettings();
     void writeSettings();
     void closeEvent(QCloseEvent *event);
+    void show_hide();
+    void sticon_dblclicked(QSystemTrayIcon::ActivationReason);
+    void exit_applic();
+    void update_tray_actions();
 
 private:
-    CasterAlert * buildAlert();
+    CasterAlert * buildAlert(QStringList *sl = NULL);
     QStringList getUserList(bool onlySelectedUsers);
+    void initTray();
 
-    QUdpSocket *sockM;      // Multicast UDP socket for sending alerts
-    QHostAddress addrM;     // Multicast address for sending alerts
-    quint16 portM;          // Multicast port for sending alerts
+    QUdpSocket *sockM;          // Multicast UDP socket for sending alerts
+    QHostAddress addrM;         // Multicast address for sending alerts
+    quint16 portM;              // Multicast port for sending alerts
+    QSystemTrayIcon *sticon;
+    QMenu *stmenu;      	// Menu for the systemtrayicon
 };
 
 #endif
