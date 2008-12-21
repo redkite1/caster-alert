@@ -12,6 +12,8 @@
 #include <QFileDialog>
 #include <QDir>
 #include <QModelIndexList>
+#include <QMessageBox>
+#include <QBitArray>
 
 #include <phonon/phononnamespace.h>
 #include <phonon/audiooutput.h>
@@ -56,7 +58,9 @@ private slots:
 private:
     bool checkConcern(const CasterAlert& ca) const;
     void playSound();
+    void showAlert(const CasterAlert &ca);
     QStringList getUserList(bool onlySelectedUsers);
+    QBitArray getSelectionList();
 
     QUdpSocket *sockM;      // Multicast UDP socket for listenning alerts
     QHostAddress addrM;     // Multicast address for listenning alerts

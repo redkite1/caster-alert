@@ -6,79 +6,137 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>536</width>
-    <height>388</height>
+    <width>156</width>
+    <height>326</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Caster Alert Sender</string>
+   <string>CAS : Caster Alert Sender</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="sendAlertButton">
-    <property name="geometry">
-     <rect>
-      <x>120</x>
-      <y>130</y>
-      <width>75</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>SendAlert</string>
-    </property>
-   </widget>
-   <widget class="QListWidget" name="userList">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>70</y>
-      <width>120</width>
-      <height>192</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>120</width>
-      <height>16777215</height>
-     </size>
-    </property>
-    <property name="selectionMode">
-     <enum>QAbstractItemView::MultiSelection</enum>
-    </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <property name="text">
-      <string>Dominique</string>
-     </property>
+     <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>From :</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </item>
     <item>
-     <property name="text">
-      <string>Jean-Yves</string>
-     </property>
+     <widget class="QLineEdit" name="fromField">
+      <property name="text">
+       <string>Comptoir</string>
+      </property>
+     </widget>
     </item>
     <item>
-     <property name="text">
-      <string>Rémy</string>
-     </property>
+     <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Recipient(s) :</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </item>
     <item>
-     <property name="text">
-      <string>???</string>
-     </property>
+     <widget class="QListWidget" name="userList">
+      <property name="selectionMode">
+       <enum>QAbstractItemView::MultiSelection</enum>
+      </property>
+     </widget>
     </item>
-   </widget>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="addUserButton">
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../CasterAlertListener/res.qrc">
+          <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removeUserButton">
+        <property name="maximumSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../CasterAlertListener/res.qrc">
+          <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="sendAlertButton">
+      <property name="text">
+       <string>Send Alert</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>536</width>
-     <height>20</height>
+     <width>156</width>
+     <height>23</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../CasterAlertListener/res.qrc"/>
+ </resources>
  <connections/>
 </ui>

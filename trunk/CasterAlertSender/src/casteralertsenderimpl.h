@@ -18,6 +18,9 @@
 #include <QHostAddress>
 #include <QByteArray>
 #include <QDataStream>
+#include <QInputDialog>
+#include <QSettings>
+#include <QCloseEvent>
 
 #include <QtDebug>
 
@@ -32,9 +35,15 @@ public:
 private slots:
     void readPendingDatagramsM();
     void on_sendAlertButton_clicked();
+    void on_addUserButton_clicked();
+    void on_removeUserButton_clicked();
+    void readSettings();
+    void writeSettings();
+    void closeEvent(QCloseEvent *event);
 
 private:
     CasterAlert * buildAlert();
+    QStringList getUserList(bool onlySelectedUsers);
 
     QUdpSocket *sockM;      // Multicast UDP socket for sending alerts
     QHostAddress addrM;     // Multicast address for sending alerts

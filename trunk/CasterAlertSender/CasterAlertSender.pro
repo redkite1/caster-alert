@@ -8,3 +8,4 @@ UI_DIR = build
 FORMS = ui/casteralertsendergui.ui
 HEADERS = src/casteralertsenderimpl.h libs/src/casteralert.h
 SOURCES = src/casteralertsenderimpl.cpp src/main.cpp libs/src/casteralert.cpp
+RESOURCES += res.qrc
