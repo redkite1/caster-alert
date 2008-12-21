@@ -30,11 +30,14 @@ void CasterAlertListenerImpl::startListenning()
 
     connect(sockM, SIGNAL(readyRead()), this, SLOT(readPendingDatagrams()));
     stopButton->setEnabled(true);
+    startButton->setEnabled(false);
 }
 
 void CasterAlertListenerImpl::stopListenning()
 {
     sockM->abort();
+    stopButton->setEnabled(false);
+    startButton->setEnabled(true);
 }
 
 void CasterAlertListenerImpl::readPendingDatagrams()
@@ -54,15 +57,15 @@ void CasterAlertListenerImpl::readPendingDatagrams()
         QDataStream in(&datagram, QIODevice::ReadOnly);
         in >> ca;
 
-        infoConsole->appendPlainText("From : " + ca.getFrom());
+        //qDebug() << "From : " + ca.getFrom();
 
         if (checkConcern(ca))
         {
-            infoConsole->appendPlainText("Ca nous concerne !!");
+            statusbar->showMessage("Alert received", 3000);
             performAlert(ca);
         }
         else
-            infoConsole->appendPlainText("C'est pas pour nous");
+            statusbar->showMessage("Alert ignored", 3000);
 
         //qDebug() << datagram.data();
         //qDebug() << sender;
@@ -76,7 +79,7 @@ void CasterAlertListenerImpl::performAlert(const CasterAlert &ca)
         playSound();
 
     if (actionVisual->isChecked())
-        return;
+        showAlert(ca);
 
     if ( !actionSound->isChecked() && !actionVisual->isChecked() )
         QApplication::beep();
@@ -84,8 +87,8 @@ void CasterAlertListenerImpl::performAlert(const CasterAlert &ca)
 
 bool CasterAlertListenerImpl::checkConcern(const CasterAlert &ca) const
 {
-     QList<QListWidgetItem *> selectedUsers = userList->selectedItems();
-     QList<QString> to = ca.getTo();
+    QList<QListWidgetItem *> selectedUsers = userList->selectedItems();
+    QList<QString> to = ca.getTo();
 
     for(int i=0; i < selectedUsers.size(); i++)
     {
@@ -116,18 +119,15 @@ void CasterAlertListenerImpl::on_addUserButton_clicked()
 
     if ( user != "" && userList->findItems(user, Qt::MatchFixedString).count()==0 )
         userList->addItem(user);
-    // TODO : check if username not already in and Warning in both case?
-
-
-
 }
 
 void CasterAlertListenerImpl::on_removeUserButton_clicked()
 {    
-    QModelIndexList mil = userList->selectedIndexes();
+    QList<QListWidgetItem *> lwi = userList->selectedItems();
+    int nbr = lwi.count();
 
-    // TODO : doesn't work
-    mil
+    for (int i=0; i<nbr; i++)
+        delete lwi.at(i);
 }
 
 void CasterAlertListenerImpl::readSettings()
@@ -137,6 +137,10 @@ void CasterAlertListenerImpl::readSettings()
     actionSound->setChecked(settings.value("alert/sound", false).toBool());
     actionVisual->setChecked(settings.value("alert/visual", false).toBool());
     songPath = settings.value("alert/songpath", "").toString();
+    userList->addItems(settings.value("users/list", NULL).toStringList());
+    QBitArray ba = settings.value("users/listselection").toBitArray();
+    for (int i=0; i<ba.size(); i++)
+        userList->item(i)->setSelected(ba.at(i));
 }
 
 void CasterAlertListenerImpl::writeSettings()
@@ -146,37 +150,59 @@ void CasterAlertListenerImpl::writeSettings()
     settings.setValue("alert/sound", actionSound->isChecked());
     settings.setValue("alert/visual", actionVisual->isChecked());
     settings.setValue("alert/songpath", songPath);
-//    settings.setValue("users/list", getUserList(false));
+    settings.setValue("users/list", getUserList(false));
+    settings.setValue("users/listselection", getSelectionList());
 }
 
- void CasterAlertListenerImpl::closeEvent(QCloseEvent *event)
- {
+void CasterAlertListenerImpl::closeEvent(QCloseEvent *event)
+{
     writeSettings();
     event->accept();
- }
+}
 
- void CasterAlertListenerImpl::selectSong()
- {
-     songPath = QFileDialog::getOpenFileName(this, trUtf8("Choose a alert song"), QDir::homePath());
- }
+void CasterAlertListenerImpl::selectSong()
+{
+    songPath = QFileDialog::getOpenFileName(this, trUtf8("Choose a alert song"), QDir::homePath());
+}
 
- QStringList CasterAlertListenerImpl::getUserList(bool onlySelectedUsers)
- {
+QStringList CasterAlertListenerImpl::getUserList(bool onlySelectedUsers)
+{
     QStringList slu;
     QList<QListWidgetItem *> lwi;
-/*
+    int nbr;
+
     if ( onlySelectedUsers )
         lwi = userList->selectedItems();
     else
-        lwi = userList->items(Q);
+    {
+        nbr = userList->count();
+        for (int i=0; i<nbr; i++)
+            lwi.append(userList->item(i));
+    }
 
-    for (int i=0; i<lwi; i++)
+    nbr = lwi.count();
+    for (int i=0; i<nbr; i++)
         slu.append(lwi.at(i)->text());
-*/
+
     return slu;
- }
+}
 
+QBitArray CasterAlertListenerImpl::getSelectionList()
+{
+    QBitArray ba;
+    int nbr = userList->count();
 
+    ba.resize(nbr);
+    for (int i=0; i<nbr; i++)
+        ba.setBit(i,userList->item(i)->isSelected());
+
+    return ba;
+}
+
+void CasterAlertListenerImpl::showAlert(const CasterAlert &ca)
+{
+    QMessageBox::information(this,trUtf8("Caster Alert received"), "'" + ca.getFrom() + "'" + trUtf8(" is requesting your help."));
+}
 
 
 

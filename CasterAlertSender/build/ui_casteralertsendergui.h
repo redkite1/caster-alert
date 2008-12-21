@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'casteralertsendergui.ui'
 **
-** Created: Sat Dec 20 16:16:49 2008
+** Created: Sun Dec 21 17:27:05 2008
 **      by: Qt User Interface Compiler version 4.4.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -14,11 +14,16 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QHBoxLayout>
+#include <QtGui/QLabel>
+#include <QtGui/QLineEdit>
 #include <QtGui/QListWidget>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenuBar>
 #include <QtGui/QPushButton>
+#include <QtGui/QSpacerItem>
 #include <QtGui/QStatusBar>
+#include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,8 +32,16 @@ class Ui_CasterAlertSenderGUI
 {
 public:
     QWidget *centralwidget;
-    QPushButton *sendAlertButton;
+    QVBoxLayout *verticalLayout;
+    QLabel *label_2;
+    QLineEdit *fromField;
+    QLabel *label;
     QListWidget *userList;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *addUserButton;
+    QSpacerItem *horizontalSpacer;
+    QPushButton *removeUserButton;
+    QPushButton *sendAlertButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -36,25 +49,76 @@ public:
     {
     if (CasterAlertSenderGUI->objectName().isEmpty())
         CasterAlertSenderGUI->setObjectName(QString::fromUtf8("CasterAlertSenderGUI"));
-    CasterAlertSenderGUI->resize(536, 388);
+    CasterAlertSenderGUI->resize(156, 326);
     centralwidget = new QWidget(CasterAlertSenderGUI);
     centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+    verticalLayout = new QVBoxLayout(centralwidget);
+    verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+    label_2 = new QLabel(centralwidget);
+    label_2->setObjectName(QString::fromUtf8("label_2"));
+    QFont font;
+    font.setBold(true);
+    font.setUnderline(false);
+    font.setWeight(75);
+    label_2->setFont(font);
+    label_2->setAlignment(Qt::AlignCenter);
+
+    verticalLayout->addWidget(label_2);
+
+    fromField = new QLineEdit(centralwidget);
+    fromField->setObjectName(QString::fromUtf8("fromField"));
+
+    verticalLayout->addWidget(fromField);
+
+    label = new QLabel(centralwidget);
+    label->setObjectName(QString::fromUtf8("label"));
+    label->setFont(font);
+    label->setAlignment(Qt::AlignCenter);
+
+    verticalLayout->addWidget(label);
+
+    userList = new QListWidget(centralwidget);
+    userList->setObjectName(QString::fromUtf8("userList"));
+    userList->setSelectionMode(QAbstractItemView::MultiSelection);
+
+    verticalLayout->addWidget(userList);
+
+    horizontalLayout = new QHBoxLayout();
+    horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+    addUserButton = new QPushButton(centralwidget);
+    addUserButton->setObjectName(QString::fromUtf8("addUserButton"));
+    addUserButton->setMaximumSize(QSize(24, 24));
+    QIcon icon;
+    icon.addPixmap(QPixmap(QString::fromUtf8(":/icons/add")), QIcon::Normal, QIcon::Off);
+    addUserButton->setIcon(icon);
+
+    horizontalLayout->addWidget(addUserButton);
+
+    horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+    horizontalLayout->addItem(horizontalSpacer);
+
+    removeUserButton = new QPushButton(centralwidget);
+    removeUserButton->setObjectName(QString::fromUtf8("removeUserButton"));
+    removeUserButton->setMaximumSize(QSize(24, 24));
+    QIcon icon1;
+    icon1.addPixmap(QPixmap(QString::fromUtf8(":/icons/remove")), QIcon::Normal, QIcon::Off);
+    removeUserButton->setIcon(icon1);
+
+    horizontalLayout->addWidget(removeUserButton);
+
+
+    verticalLayout->addLayout(horizontalLayout);
+
     sendAlertButton = new QPushButton(centralwidget);
     sendAlertButton->setObjectName(QString::fromUtf8("sendAlertButton"));
-    sendAlertButton->setGeometry(QRect(120, 130, 75, 25));
-    userList = new QListWidget(centralwidget);
-    new QListWidgetItem(userList);
-    new QListWidgetItem(userList);
-    new QListWidgetItem(userList);
-    new QListWidgetItem(userList);
-    userList->setObjectName(QString::fromUtf8("userList"));
-    userList->setGeometry(QRect(360, 70, 120, 192));
-    userList->setMaximumSize(QSize(120, 16777215));
-    userList->setSelectionMode(QAbstractItemView::MultiSelection);
+
+    verticalLayout->addWidget(sendAlertButton);
+
     CasterAlertSenderGUI->setCentralWidget(centralwidget);
     menubar = new QMenuBar(CasterAlertSenderGUI);
     menubar->setObjectName(QString::fromUtf8("menubar"));
-    menubar->setGeometry(QRect(0, 0, 536, 20));
+    menubar->setGeometry(QRect(0, 0, 156, 23));
     CasterAlertSenderGUI->setMenuBar(menubar);
     statusbar = new QStatusBar(CasterAlertSenderGUI);
     statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -67,17 +131,13 @@ public:
 
     void retranslateUi(QMainWindow *CasterAlertSenderGUI)
     {
-    CasterAlertSenderGUI->setWindowTitle(QApplication::translate("CasterAlertSenderGUI", "Caster Alert Sender", 0, QApplication::UnicodeUTF8));
-    sendAlertButton->setText(QApplication::translate("CasterAlertSenderGUI", "SendAlert", 0, QApplication::UnicodeUTF8));
-
-    const bool __sortingEnabled = userList->isSortingEnabled();
-    userList->setSortingEnabled(false);
-    userList->item(0)->setText(QApplication::translate("CasterAlertSenderGUI", "Dominique", 0, QApplication::UnicodeUTF8));
-    userList->item(1)->setText(QApplication::translate("CasterAlertSenderGUI", "Jean-Yves", 0, QApplication::UnicodeUTF8));
-    userList->item(2)->setText(QApplication::translate("CasterAlertSenderGUI", "R\303\251my", 0, QApplication::UnicodeUTF8));
-    userList->item(3)->setText(QApplication::translate("CasterAlertSenderGUI", "???", 0, QApplication::UnicodeUTF8));
-
-    userList->setSortingEnabled(__sortingEnabled);
+    CasterAlertSenderGUI->setWindowTitle(QApplication::translate("CasterAlertSenderGUI", "CAS : Caster Alert Sender", 0, QApplication::UnicodeUTF8));
+    label_2->setText(QApplication::translate("CasterAlertSenderGUI", "From :", 0, QApplication::UnicodeUTF8));
+    fromField->setText(QApplication::translate("CasterAlertSenderGUI", "Comptoir", 0, QApplication::UnicodeUTF8));
+    label->setText(QApplication::translate("CasterAlertSenderGUI", "Recipient(s) :", 0, QApplication::UnicodeUTF8));
+    addUserButton->setText(QString());
+    removeUserButton->setText(QString());
+    sendAlertButton->setText(QApplication::translate("CasterAlertSenderGUI", "Send Alert", 0, QApplication::UnicodeUTF8));
     Q_UNUSED(CasterAlertSenderGUI);
     } // retranslateUi
 
