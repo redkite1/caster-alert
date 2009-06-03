@@ -58,6 +58,7 @@ void CasterAlertSenderImpl::on_addUserButton_clicked()
 {
     QString user = QInputDialog::getText(this, trUtf8("Username"), trUtf8("Username to add to the list :               "), QLineEdit::Normal, trUtf8("username"));
 
+    /* Check if user is not empty and if username specied is not already in the list */
     if ( user != "" && userList->findItems(user, Qt::MatchFixedString).count()==0 )
         userList->addItem(user);
 }
@@ -76,8 +77,10 @@ void CasterAlertSenderImpl::on_sendAlertButton_clicked()
     CasterAlert *ca = NULL;
 
     // Check if at least one user is selected as target
-    if ( userList->selectedItems().size()==0 )
-        return; // TODO : Warning message
+    if ( userList->selectedItems().size()==0 ) {
+        statusbar->showMessage(trUtf8("Alert not sended"), 3000);
+        return;
+    }
 
     ca = buildAlert();
 
