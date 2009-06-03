@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>CAS : Caster Alert Sender</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../res.qrc">
+    <normaloff>:/icons/images/icons/edit_add.png</normaloff>:/icons/images/icons/edit_add.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -77,7 +81,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../../CasterAlertListener/res.qrc">
+         <iconset resource="../res.qrc">
           <normaloff>:/icons/images/icons/edit_add.png</normaloff>:/icons/images/icons/edit_add.png</iconset>
         </property>
        </widget>
@@ -107,7 +111,7 @@
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="../../CasterAlertListener/res.qrc">
+         <iconset resource="../res.qrc">
           <normaloff>:/icons/images/icons/edit_remove.png</normaloff>:/icons/images/icons/edit_remove.png</iconset>
         </property>
        </widget>
@@ -136,7 +140,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../../CasterAlertListener/res.qrc"/>
+  <include location="../res.qrc"/>
  </resources>
  <connections/>
 </ui>
