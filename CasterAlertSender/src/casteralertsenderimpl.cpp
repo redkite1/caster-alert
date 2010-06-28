@@ -19,65 +19,32 @@ void CasterAlertSenderImpl::initSocket()
     sockM = new QUdpSocket(this);
     sockM->bind(this->portM, QUdpSocket::ShareAddress);     // Listening on : ip=QHostAddress::Any(it's an overloaded method), port=portM
                                                             // QUdpSocket::ShareAddress = Allow other services to bind to the same address and port
-
-/*  Plus besoin d'écouter, suffit d'envoyer ici, c juste bon pour tester :-)
-    // S'abonner a l adresse multicast ! (Qt ne gere pas, il faut appeler les methode natives... tsss)
-    struct ip_mreq mreq;
-    mreq.imr_multiaddr.s_addr = inet_addr((const char*)addrM.toString().toStdString().c_str());
-    mreq.imr_interface.s_addr = INADDR_ANY;
-    int r = ::setsockopt(sockM->socketDescriptor(), IPPROTO_IP, IP_ADD_MEMBERSHIP, (const char *)&mreq, sizeof(struct ip_mreq));
-    qDebug("setsockopt returned %d", r);
-
-    connect(sockM, SIGNAL(readyRead()), this, SLOT(readPendingDatagramsM()));
-*/
 }
 
-void CasterAlertSenderImpl::readPendingDatagramsM()
+void CasterAlertSenderImpl::on_addUserPB_clicked()
 {
-    qDebug() << "Retrieving datagram";
-
-    while (sockM->hasPendingDatagrams())
-    {
-        QByteArray datagram;
-        QHostAddress sender;
-        quint16 senderPort;
-
-        datagram.resize(sockM->pendingDatagramSize());
-        sockM->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
-
-        QString str = QString::fromUtf8(datagram.data());
-
-        //processTheDatagram(datagram);
-        qDebug() << datagram.data();
-        qDebug() << sender;
-        qDebug() << senderPort << endl;
-    }
-}
-
-void CasterAlertSenderImpl::on_addUserButton_clicked()
-{
-    QString user = QInputDialog::getText(this, trUtf8("Username"), trUtf8("Username to add to the list :               "), QLineEdit::Normal, trUtf8("username"));
+    QString user = QInputDialog::getText(this, trUtf8("Username"), trUtf8("Username to add to the list :"), QLineEdit::Normal, trUtf8("username"));
 
     /* Check if user is not empty and if username specied is not already in the list */
-    if ( user != "" && userList->findItems(user, Qt::MatchFixedString).count()==0 )
-        userList->addItem(user);
+    if ( user != "" && userLW->findItems(user, Qt::MatchFixedString).count()==0 )
+        userLW->addItem(user);
 }
 
-void CasterAlertSenderImpl::on_removeUserButton_clicked()
+void CasterAlertSenderImpl::on_removeUserPB_clicked()
 {
-    QList<QListWidgetItem *> lwi = userList->selectedItems();
+    QList<QListWidgetItem *> lwi = userLW->selectedItems();
     int nbr = lwi.count();
 
-    for (int i=0; i<nbr; i++)
+    for (int i=0; i<nbr; ++i)
         delete lwi.at(i);
 }
 
-void CasterAlertSenderImpl::on_sendAlertButton_clicked()
+void CasterAlertSenderImpl::on_sendAlertPB_clicked()
 {
     CasterAlert *ca = NULL;
 
     // Check if at least one user is selected as target
-    if ( userList->selectedItems().size()==0 ) {
+    if ( userLW->selectedItems().size()==0 ) {
         statusbar->showMessage(trUtf8("Alert not sended"), 3000);
         return;
     }
@@ -102,24 +69,15 @@ void CasterAlertSenderImpl::on_sendAlertButton_clicked()
     delete ca;
 }
 
-CasterAlert * CasterAlertSenderImpl::buildAlert(QStringList *sl)
+CasterAlert * CasterAlertSenderImpl::buildAlert()
 {
     CasterAlert *ca = new CasterAlert();
+    ca->setFrom(fromLE->text());
 
-    ca->setFrom(fromField->text());
+    QList<QListWidgetItem *> selectedUsers = userLW->selectedItems();
 
-    if (sl == NULL)
-    {
-        QList<QListWidgetItem *> selectedUsers = userList->selectedItems();
-
-        for (int i=0; i<selectedUsers.size(); i++)
-            ca->addTo(selectedUsers.at(i)->text());
-    }
-    else
-    {
-        for (int i=0; i<sl->count(); i++)
-            ca->addTo(sl->at(i));
-    }
+    for (int i=0; i<selectedUsers.size(); i++)
+        ca->addTo(selectedUsers.at(i)->text());
 
 
     return ca;
@@ -135,15 +93,15 @@ void CasterAlertSenderImpl::readSettings()
 {
     QSettings settings;
 
-    fromField->setText(settings.value("sender", "Sender").toString());
-    userList->addItems(settings.value("users/list", NULL).toStringList());
+    fromLE->setText(settings.value("sender", "Sender").toString());
+    userLW->addItems(settings.value("users/list", NULL).toStringList());
 }
 
 void CasterAlertSenderImpl::writeSettings()
 {
     QSettings settings;
 
-    settings.setValue("sender", fromField->text());
+    settings.setValue("sender", fromLE->text());
     settings.setValue("users/list", getUserList(false));
 }
 
@@ -154,12 +112,12 @@ QStringList CasterAlertSenderImpl::getUserList(bool onlySelectedUsers)
     int nbr;
 
     if ( onlySelectedUsers )
-        lwi = userList->selectedItems();
+        lwi = userLW->selectedItems();
     else
     {
-        nbr = userList->count();
+        nbr = userLW->count();
         for (int i=0; i<nbr; i++)
-            lwi.append(userList->item(i));
+            lwi.append(userLW->item(i));
     }
 
     nbr = lwi.count();

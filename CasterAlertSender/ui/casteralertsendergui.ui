@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>156</width>
-    <height>326</height>
+    <width>130</width>
+    <height>299</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,6 +19,12 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>2</number>
+    </property>
+    <property name="margin">
+     <number>2</number>
+    </property>
     <item>
      <widget class="QLabel" name="label_2">
       <property name="font">
@@ -31,13 +37,31 @@
       <property name="text">
        <string>From :</string>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="fromLE">
+      <property name="text">
+       <string>Comptoir</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="fromField">
+     <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Comment :</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="commentLE">
       <property name="text">
        <string>Comptoir</string>
       </property>
@@ -55,13 +79,10 @@
       <property name="text">
        <string>Recipient(s) :</string>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
      </widget>
     </item>
     <item>
-     <widget class="QListWidget" name="userList">
+     <widget class="QListWidget" name="userLW">
       <property name="selectionMode">
        <enum>QAbstractItemView::MultiSelection</enum>
       </property>
@@ -70,7 +91,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="addUserButton">
+       <widget class="QPushButton" name="removeUserPB">
         <property name="maximumSize">
          <size>
           <width>24</width>
@@ -82,7 +103,7 @@
         </property>
         <property name="icon">
          <iconset resource="../res.qrc">
-          <normaloff>:/icons/images/icons/edit_add.png</normaloff>:/icons/images/icons/edit_add.png</iconset>
+          <normaloff>:/icons/images/icons/edit_remove.png</normaloff>:/icons/images/icons/edit_remove.png</iconset>
         </property>
        </widget>
       </item>
@@ -100,7 +121,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="removeUserButton">
+       <widget class="QPushButton" name="addUserPB">
         <property name="maximumSize">
          <size>
           <width>24</width>
@@ -112,14 +133,14 @@
         </property>
         <property name="icon">
          <iconset resource="../res.qrc">
-          <normaloff>:/icons/images/icons/edit_remove.png</normaloff>:/icons/images/icons/edit_remove.png</iconset>
+          <normaloff>:/icons/images/icons/edit_add.png</normaloff>:/icons/images/icons/edit_add.png</iconset>
         </property>
        </widget>
       </item>
      </layout>
     </item>
     <item>
-     <widget class="QPushButton" name="sendAlertButton">
+     <widget class="QPushButton" name="sendAlertPB">
       <property name="text">
        <string>Send Alert</string>
       </property>
@@ -132,8 +153,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>156</width>
-     <height>23</height>
+     <width>130</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>

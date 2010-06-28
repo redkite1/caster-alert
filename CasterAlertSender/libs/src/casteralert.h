@@ -3,7 +3,7 @@
 
 #include <QList>
 #include <QString>
-#include <QMetaType>
+//#include <QMetaType>
 #include <QDataStream>
 
 class CasterAlert
@@ -23,7 +23,7 @@ public:
 
 private:
     QString from;
-    QList<QString> to;  // Faire que l'envoyeur envoit a pls personne ou que le listener puisse ecouter plusieurs personne? ou les deux?
+    QList<QString> to;
 };
 
 //Q_DECLARE_METATYPE(CasterAlert)
