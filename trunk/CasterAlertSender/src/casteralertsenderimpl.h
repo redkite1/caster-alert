@@ -36,22 +36,21 @@ public:
     void initSocket();
 
 private slots:
-    void readPendingDatagramsM();
-    void on_sendAlertButton_clicked();
-    void on_addUserButton_clicked();
-    void on_removeUserButton_clicked();
-    void readSettings();
-    void writeSettings();
+    void on_sendAlertPB_clicked();
+    void on_addUserPB_clicked();
+    void on_removeUserPB_clicked();
     void closeEvent(QCloseEvent *event);
     void show_hide();
     void sticon_dblclicked(QSystemTrayIcon::ActivationReason);
     void exit_applic();
-    void update_tray_actions();
 
 private:
-    CasterAlert * buildAlert(QStringList *sl = NULL);
+    CasterAlert * buildAlert();
     QStringList getUserList(bool onlySelectedUsers);
     void initTray();
+    void readSettings();
+    void writeSettings();
+    void update_tray_actions();
 
     QUdpSocket *sockM;          // Multicast UDP socket for sending alerts
     QHostAddress addrM;         // Multicast address for sending alerts
